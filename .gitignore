@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Model weights
+weights/**/*.pth
+weights/**/*.pkl
+weights/**/*.pt
+weights/**/*.ckpt
+weights/**/*.safetensors
+
+# Local secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Logs & outputs
+log/
+tensorboardX_logs/
+results/
+*.log
+
+# Data (large files)
+data_dump/
+raw_data/
+*.hdf5
+*.h5
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temp
+*.tmp
+*.bak
