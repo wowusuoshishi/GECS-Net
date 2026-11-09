@@ -1,14 +1,15 @@
-# GECS-Net: Geometric Embedding and Cross-Stage Network for Two-View Correspondence Learning
+# GECS-Net
 
-[![IEEE SPL 2026](https://img.shields.io/badge/Paper-IEEE%20SPL%202026-blue)](https://ieeexplore.ieee.org/)
+**Two-View Correspondence Learning via Geometric Embedding and Cross-Stage Consensus**
+
+[![IEEE SPL 2026](https://img.shields.io/badge/Paper-IEEE%20SPL%202026-blue)](#citation)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-orange)]()
-[![PyTorch 2.6+](https://img.shields.io/badge/PyTorch-2.6%2B-red)]()
+![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-orange)
+![PyTorch 2.6+](https://img.shields.io/badge/PyTorch-2.6%2B-red)
 
-This repository provides the official PyTorch implementation of **GECS-Net** (Geometric Embedding and Cross-Stage Network), a deep learning framework for robust two-view correspondence learning and outlier rejection.
+Official PyTorch implementation of **GECS-Net** for two-view correspondence filtering and relative camera pose estimation.
 
-GECS-Net synergizes **Geometry-Aware Embedding (GEA)** with **Cross-Stage Graph Feature Extraction (CSGFE)** to achieve state-of-the-art performance on camera pose estimation, even under challenging scenarios with high outlier ratios and complex geometric deformations.
-
+[Architecture](#architecture) · [Installation](#installation) · [Datasets](#dataset-preparation) · [Training](#training) · [Testing](#testing) · [Citation](#citation)
 ## Overview
 
 Two-view correspondence learning is fundamental to 3D computer vision tasks such as structure-from-motion (SfM) and simultaneous localization and mapping (SLAM). GECS-Net addresses the core challenge of outlier rejection through two key innovations:
@@ -34,13 +35,13 @@ Two-view correspondence learning is fundamental to 3D computer vision tasks such
 
 ### Loss Function
 
-```
-L = L_cls + γ · L_geo    (γ = 0.5)
-```
+$$
+\mathcal{L} = \mathcal{L}_{\mathrm{cls}} + \gamma\,\mathcal{L}_{\mathrm{geo}}
+\qquad (\gamma = 0.5)
+$$
 
-- **L_cls**: Balanced binary cross-entropy for inlier/outlier classification
-- **L_geo**: Symmetric epipolar distance penalty on virtual correspondences
-
+- **Classification loss** ($\mathcal{L}_{\mathrm{cls}}$) uses balanced binary cross-entropy to distinguish inliers from outliers.
+- **Geometric loss** ($\mathcal{L}_{\mathrm{geo}}$) penalizes the symmetric epipolar distance on virtual correspondences.
 ## Requirements
 
 - Python >= 3.10
