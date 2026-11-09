@@ -19,34 +19,7 @@ Two-view correspondence learning is fundamental to 3D computer vision tasks such
 
 ## Architecture
 
-```
-Input: N×4 correspondences (x1, y1, x2, y2)
-         │
-    ┌────▼────┐
-    │ Stage 0 │  Init: Conv → GEA(RoPE+MBFFN)×2 → GNN(k=3,cosine)
-    └────┬────┘
-         │ Z1, Z2, Z3
-    ┌────▼────┐
-    │ Stage 1 │  CSGFE cross-stage fusion → GEA×2 → GNN(k=3)
-    └────┬────┘
-         │
-    ┌────▼────┐
-    │ Stage 2 │  CSGFE + SE historical calibration → GEA×2 → GNN(k=3)
-    └────┬────┘
-         │
-    ┌────▼────┐
-    │  CSGFE  │  Cross-Stage Graph Consensus (all 3 stages)
-    └────┬────┘
-         │
-    ┌────▼────┐
-    │  MBSE   │  Multi-Branch SE Enhancement
-    └────┬────┘
-         │
-    ┌────▼────┐
-    │ Weighted │  Weighted 8-Point Algorithm
-    │ 8-Point  │  → Essential Matrix E
-    └─────────┘
-```
+![Overview of the GECS-Net architecture](./docs/FIG.png)
 
 ### Key Modules
 
